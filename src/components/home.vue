@@ -40,7 +40,13 @@ export default {
 .item {
   width: 500px;
   flex: 1;
+  color: #03498f;
+  cursor: pointer;
+  border-bottom:  #00080f;
 }
-
+.item:hover {
+  color: #0080ff;
+  border-bottom:  #0080ff;
+}
 
 </style>
