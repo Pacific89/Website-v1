@@ -1,20 +1,12 @@
 <template>
-<div class="m" :style="{ backgroundImage: 'url(' + require('@/assets/homepage_main.png') + ')' }">
-  <!-- <div class="hello"> -->
-    <!-- <v-row>
-      <div class="menue">
-        <div class="item">
-          About
-        </div>
-        <div class="item">
-          Projects
-        </div>
-        <div class="item">
-          Coding
-        </div>
-      </div>
-    </v-row> -->
-    <!-- </div> -->
+  <div class="main">
+    <v-card class="main">
+        <v-container class="container">
+          <v-row>
+            <particles-bg type="custom" :bg="false" :config="config" />
+          </v-row>
+        </v-container>
+    </v-card>
   </div>
 </template>
 
@@ -25,14 +17,28 @@ export default {
   props: {
     msg: String
   },
-data () {
-  return {
-    myImage: require('@/assets/homepage_main.png')
-  }
-},
+  data: function() {
+    return {
+      config: {
+        num: [0.2, 1.5],
+        rps: 2,
+        radius: [2, 5],
+        life: [5, 10],
+        v: [0.05, 0.1],
+        tha: [-5, 5],
+        color: "#a2e9ff",
+        // body: icon,
+        alpha: [1.0, 0],
+        scale: [0.2, 0.05],
+        position: "screen",
+        cross: "cross",
+        random: 10
+      }
+    };
+  },
 computed: {
   getImg() {
-    return require('@/assets/homepage_main.png')
+    return require('@/assets/homepage_main_stars.png')
   }
 }
 }
@@ -41,6 +47,10 @@ computed: {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container {
+  padding-left: 14rem;
+  padding-right: 14rem;
+}
 .main {
   display: flex;
   align-items: left;
@@ -48,9 +58,14 @@ computed: {
   vertical-align: middle;
   color: #0080ff;
 }
+.mx-auto {
+  position: relative;
+  align-items: right;
+  justify-content: right;
+}
 .menue {
   display: flex;
-  align-items: center;
+  align-items: right;
   justify-content: space-around;
   color: #0080ff;
 }
@@ -59,16 +74,12 @@ computed: {
   width: 500px;
   height: 50px;
   flex: 1;
-  color: #03498f;
+  color: #939da7;
   cursor: pointer;
-  border-bottom: 2px solid #00080f;
 }
 .item:hover {
-  color: #0080ff;
-  border-bottom: 2px solid #0080ff;
+  color: #a2e9ff;
+  border: 2px solid #c9cccf;
   font-size: 20px;
 }
-
-
-
 </style>
