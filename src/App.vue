@@ -24,6 +24,7 @@ export default {
   margin-top: 60px;
 }
 body {
-  background: #00080f;
+  background-image: url('~@/assets/homepage_main.png');
+  background-size: cover;
 }
 </style>
