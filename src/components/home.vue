@@ -1,14 +1,12 @@
 <template>
-  <div class="main">
-    <v-card class="main">
-        <v-container class="container">
-          <v-row>
-            <particles-bg type="custom" :bg="false" :config="config" />
-          </v-row>
-        </v-container>
-    </v-card>
-  </div>
+  <b-container class="position-relative">
+    <b-row class="position-relative stars">
+        <particles-bg type="custom" :bg="false" :config="config" />
+    </b-row>
+  </b-container>
 </template>
+
+
 
 <script>
 
@@ -20,19 +18,28 @@ export default {
   data: function() {
     return {
       config: {
-        num: [0.2, 1.5],
+        num: [0.1, 0.2],
         rps: 2,
-        radius: [2, 5],
-        life: [5, 10],
+        radius: [2, 9],
+        life: [5, 20],
         v: [0.05, 0.1],
-        tha: [-5, 5],
+        tha: [-60, 60],
         color: "#a2e9ff",
         // body: icon,
-        alpha: [1.0, 0],
+        alpha: [1.2, 0],
         scale: [0.2, 0.05],
-        position: "screen",
-        cross: "cross",
-        random: 10
+        position: "all",
+        cross: "broud",
+        random: 2,
+        g: 0.3,
+      
+        onParticleUpdate: (ctx, particle) => {
+          ctx.beginPath();
+          ctx.rect(particle.p.x, particle.p.y, particle.radius * 2, particle.radius * 2);
+          ctx.fillStyle = particle.color;
+          ctx.fill();
+          ctx.closePath();
+        }
       }
     };
   },
@@ -48,28 +55,27 @@ computed: {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
-  padding-left: 14rem;
-  padding-right: 14rem;
+  /* padding-left: 40rem; */
+  /* padding-right: 40rem; */
+  /* padding-top: 5rem; */
+  /* padding-bottom: 5.5rem; */
+  border: 2px solid #c9cccf;
 }
-.main {
+.position-relative {
   display: flex;
-  align-items: left;
-  justify-content: center;
-  vertical-align: middle;
+  height: 650px;
+  width: 100%;
+  /* background-color: #343a40; */
+}
+.stars {
+  height: 300px;
+  width: 100%;
+  /* background-color: #343a40; */
+}
+.list {
+  width: 100%;
   color: #0080ff;
 }
-.mx-auto {
-  position: relative;
-  align-items: right;
-  justify-content: right;
-}
-.menue {
-  display: flex;
-  align-items: right;
-  justify-content: space-around;
-  color: #0080ff;
-}
-
 .item {
   width: 500px;
   height: 50px;
