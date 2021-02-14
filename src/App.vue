@@ -24,7 +24,7 @@ export default {
   margin-top: 60px;
 }
 body {
-  background-image: url('~@/assets/homepage_main_stars.png');
+  background-image: url('~@/assets/main_page_sterne_nice.png');
   background-size: cover;
 }
 </style>
